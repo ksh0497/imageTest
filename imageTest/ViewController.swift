@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     var count = 1
+    var d = true
     @IBOutlet weak var alienImage: UIImageView!
     @IBOutlet weak var counttext: UILabel!
     @IBOutlet weak var imgname: UILabel!
@@ -21,14 +22,25 @@ class ViewController: UIViewController {
     }
     @IBAction func updatebtn(_ sender: Any) {
         //print("button pressed!")
+        if count == 5 {
+            d = false
+        } else if count == 1 {
+            d = true
+        }
+        
+        if d == true {
+            count += 1
+        } else {
+            count -= 1
+        }
         // 누를때 마다 count가 1 증가
-        count += 1
+        // count += 1
         alienImage.image = UIImage(named: "frame\(count).png")
         counttext.text = String(count)
         imgname.text = String("frame\(count).png")
-        if (count == 5){
-        count = 0
-    }
+        // if (count == 5){
+        // count = 0
+    // }
     }
     
 
