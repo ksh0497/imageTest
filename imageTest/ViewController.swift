@@ -9,12 +9,28 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var count = 1
+    @IBOutlet weak var alienImage: UIImageView!
+    @IBOutlet weak var counttext: UILabel!
+    @IBOutlet weak var imgname: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        // 초기 이미지 보이기
+        alienImage.image = UIImage(named: "frame\(count).png")
     }
-
+    @IBAction func updatebtn(_ sender: Any) {
+        //print("button pressed!")
+        // 누를때 마다 count가 1 증가
+        count += 1
+        alienImage.image = UIImage(named: "frame\(count).png")
+        counttext.text = String(count)
+        imgname.text = String("frame\(count).png")
+        if (count == 5){
+        count = 0
+    }
+    }
+    
 
 }
 
